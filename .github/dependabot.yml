@@ -1,0 +1,28 @@
+version: 2
+updates:
+  # Bun ecosystem — production and dev dependencies grouped separately
+  - package-ecosystem: bun
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+    reviewers:
+      - quniv
+    open-pull-requests-limit: 10
+    groups:
+      production-dependencies:
+        dependency-type: production
+      dev-dependencies:
+        dependency-type: development
+
+  # GitHub Actions — keep workflow action versions current
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+    reviewers:
+      - quniv
+    open-pull-requests-limit: 5
